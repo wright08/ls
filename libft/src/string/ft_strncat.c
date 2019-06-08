@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_new.c                                       :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rwright <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/12 15:53:35 by rwright           #+#    #+#             */
-/*   Updated: 2019/06/07 21:09:46 by rwright          ###   ########.fr       */
+/*   Created: 2019/01/14 11:08:59 by rwright           #+#    #+#             */
+/*   Updated: 2019/06/07 16:37:42 by rwright          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_vector.h"
-#include <stdlib.h>
+#include "ft_string.h"
 
-t_vector	*vector_new(int capacity)
+char	*ft_strncat(char *dst, const char *src, size_t n)
 {
-	t_vector *v;
+	char	*end;
 
-	if ((v = malloc(sizeof(t_vector))))
-	{
-		v->size = 0;
-		v->capacity = capacity;
-		if (!(v->items = malloc(capacity * sizeof(size_t))))
-			return (NULL);
-	}
-	return (v);
+	end = ft_memccpy(dst + ft_strlen(dst), src, '\0', n);
+	if (end)
+		*(--end) = '\0';
+	return (dst);
 }

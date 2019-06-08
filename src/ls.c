@@ -1,7 +1,7 @@
 #include "ls.h"
 #include "ft_printf.h"
 
-int main(void)
+int		main(int argc, char **argv)
 {
-	ft_printf("%*d|\n", -12, 12);
+	const unsigned int flags = parse_flags(argc, argv);
 }

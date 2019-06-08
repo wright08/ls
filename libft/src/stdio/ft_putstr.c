@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_add.c                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rwright <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: rwright <rwright@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/11 21:40:34 by rwright           #+#    #+#             */
-/*   Updated: 2019/06/07 21:09:46 by rwright          ###   ########.fr       */
+/*   Created: 2019/01/11 14:35:38 by rwright           #+#    #+#             */
+/*   Updated: 2019/06/07 16:48:38 by rwright          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_vector.h"
+#include "ft_stdio.h"
+#include <sys/types.h>
 
-void	*vector_add(t_vector *v, void *item)
+ssize_t	ft_putstr(char *str)
 {
-	if (v->capacity == v->size && !vector_resize(v, v->capacity * 2))
-		return (NULL);
-	v->items[v->size] = item;
-	v->size++;
-	return (v->items[v->size - 1]);
+	return (ft_putstr_fd(str, 1));
 }

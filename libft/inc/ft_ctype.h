@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_add.c                                       :+:      :+:    :+:   */
+/*   ft_ctypes.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rwright <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: rwright <rwright@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/11 21:40:34 by rwright           #+#    #+#             */
-/*   Updated: 2019/06/07 21:09:46 by rwright          ###   ########.fr       */
+/*   Created: 2019/06/06 15:32:31 by rwright           #+#    #+#             */
+/*   Updated: 2019/06/06 15:32:33 by rwright          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_vector.h"
+#ifndef FT_CTYPES_H
+# define FT_CTYPES_H
 
-void	*vector_add(t_vector *v, void *item)
-{
-	if (v->capacity == v->size && !vector_resize(v, v->capacity * 2))
-		return (NULL);
-	v->items[v->size] = item;
-	v->size++;
-	return (v->items[v->size - 1]);
-}
+int		ft_isalnum(int c);
+int		ft_isalpha(int c);
+int		ft_isascii(int c);
+int		ft_isdigit(int c);
+int		ft_isprint(int c);
+int		ft_isspace(int c);
+int		ft_toupper(int c);
+int		ft_tolower(int c);
+
+#endif

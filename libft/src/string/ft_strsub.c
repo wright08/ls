@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_new.c                                       :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rwright <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/12 15:53:35 by rwright           #+#    #+#             */
-/*   Updated: 2019/06/07 21:09:46 by rwright          ###   ########.fr       */
+/*   Created: 2019/01/21 20:47:24 by rwright           #+#    #+#             */
+/*   Updated: 2019/06/07 16:45:12 by rwright          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_vector.h"
+#include "ft_string.h"
+#include <stddef.h>
 #include <stdlib.h>
 
-t_vector	*vector_new(int capacity)
+char	*ft_strsub(char *str, unsigned int start, size_t len)
 {
-	t_vector *v;
+	char	*ret;
 
-	if ((v = malloc(sizeof(t_vector))))
-	{
-		v->size = 0;
-		v->capacity = capacity;
-		if (!(v->items = malloc(capacity * sizeof(size_t))))
-			return (NULL);
-	}
-	return (v);
+	if ((ret = ft_strnew(len)))
+		ft_memcpy(ret, str + start, len);
+	return (ret);
 }

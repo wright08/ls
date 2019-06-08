@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_new.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rwright <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/12 15:53:35 by rwright           #+#    #+#             */
-/*   Updated: 2019/06/07 21:09:46 by rwright          ###   ########.fr       */
+/*   Created: 2019/01/12 20:25:23 by rwright           #+#    #+#             */
+/*   Updated: 2019/06/07 21:18:45 by rwright          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_vector.h"
-#include <stdlib.h>
+#include "ft_ctype.h"
 
-t_vector	*vector_new(int capacity)
+int		ft_atoi(const char *str)
 {
-	t_vector *v;
+	long	n;
+	int		neg;
 
-	if ((v = malloc(sizeof(t_vector))))
-	{
-		v->size = 0;
-		v->capacity = capacity;
-		if (!(v->items = malloc(capacity * sizeof(size_t))))
-			return (NULL);
-	}
-	return (v);
+	n = 0;
+	while (ft_isspace(*str))
+		str++;
+	if ((neg = *str == '-') || *str == '+')
+		str++;
+	while (ft_isdigit(*str))
+		n = n * 10 + *str++ - '0';
+	return ((int)(neg ? -n : n));
 }

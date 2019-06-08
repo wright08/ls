@@ -6,11 +6,11 @@
 /*   By: rwright <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 14:12:07 by rwright           #+#    #+#             */
-/*   Updated: 2019/02/14 19:17:05 by rwright          ###   ########.fr       */
+/*   Updated: 2019/06/07 21:09:46 by rwright          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vector.h"
+#include "ft_vector.h"
 
 void	*vector_get(t_vector *v, int index)
 {

@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_new.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rwright <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/12 15:53:35 by rwright           #+#    #+#             */
-/*   Updated: 2019/06/07 21:09:46 by rwright          ###   ########.fr       */
+/*   Created: 2019/01/21 19:02:56 by rwright           #+#    #+#             */
+/*   Updated: 2019/06/07 16:40:11 by rwright          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_vector.h"
-#include <stdlib.h>
+#include <stddef.h>
+#include <stdint.h>
 
-t_vector	*vector_new(int capacity)
+int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	t_vector *v;
+	const uint8_t	*s1p;
+	const uint8_t	*s2p;
+	size_t			i;
 
-	if ((v = malloc(sizeof(t_vector))))
+	s1p = s1;
+	s2p = s2;
+	i = 0;
+	while (i < n)
 	{
-		v->size = 0;
-		v->capacity = capacity;
-		if (!(v->items = malloc(capacity * sizeof(size_t))))
-			return (NULL);
+		if (s1p[i] != s2p[i])
+			return (s1p[i] - s2p[i]);
+		i++;
 	}
-	return (v);
+	return (0);
 }

@@ -6,11 +6,11 @@
 /*   By: rwright <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 14:19:01 by rwright           #+#    #+#             */
-/*   Updated: 2019/02/14 20:44:03 by rwright          ###   ########.fr       */
+/*   Updated: 2019/06/07 21:09:46 by rwright          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vector.h"
+#include "ft_vector.h"
 #include <stdlib.h>
 
 void	vector_free(t_vector *v)

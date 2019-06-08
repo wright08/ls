@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_new.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rwright <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/12 15:53:35 by rwright           #+#    #+#             */
-/*   Updated: 2019/06/07 21:09:46 by rwright          ###   ########.fr       */
+/*   Created: 2019/01/18 11:46:48 by rwright           #+#    #+#             */
+/*   Updated: 2019/06/07 16:42:46 by rwright          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_vector.h"
-#include <stdlib.h>
+#include <stddef.h>
 
-t_vector	*vector_new(int capacity)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t n)
 {
-	t_vector *v;
+	size_t i;
+	size_t j;
 
-	if ((v = malloc(sizeof(t_vector))))
+	if (!*needle)
+		return ((char *)haystack);
+	i = 0;
+	while (i < n && haystack[i])
 	{
-		v->size = 0;
-		v->capacity = capacity;
-		if (!(v->items = malloc(capacity * sizeof(size_t))))
-			return (NULL);
+		j = 0;
+		while (i + j < n && needle[j] && needle[j] == haystack[i + j])
+			j++;
+		if (!needle[j] && i + j <= n)
+			return ((char *)(haystack + i));
+		i++;
 	}
-	return (v);
+	return (0);
 }

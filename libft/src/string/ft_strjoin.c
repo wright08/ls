@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_new.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rwright <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/12 15:53:35 by rwright           #+#    #+#             */
-/*   Updated: 2019/06/07 21:09:46 by rwright          ###   ########.fr       */
+/*   Created: 2019/01/28 21:05:20 by rwright           #+#    #+#             */
+/*   Updated: 2019/06/07 16:32:52 by rwright          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_vector.h"
+#include "ft_string.h"
 #include <stdlib.h>
 
-t_vector	*vector_new(int capacity)
+char	*ft_strjoin(const char *s1, const char *s2)
 {
-	t_vector *v;
+	char	*ret;
+	int		s1_len;
+	int		s2_len;
 
-	if ((v = malloc(sizeof(t_vector))))
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	if ((ret = malloc(s1_len + s2_len + 1)))
 	{
-		v->size = 0;
-		v->capacity = capacity;
-		if (!(v->items = malloc(capacity * sizeof(size_t))))
-			return (NULL);
+		ft_memcpy(ret, s1, s1_len);
+		ft_memcpy(ret + s1_len, s2, s2_len + 1);
 	}
-	return (v);
+	return (ret);
 }

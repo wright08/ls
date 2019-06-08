@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_new.c                                       :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rwright <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/12 15:53:35 by rwright           #+#    #+#             */
-/*   Updated: 2019/06/07 21:09:46 by rwright          ###   ########.fr       */
+/*   Created: 2019/01/21 20:06:48 by rwright           #+#    #+#             */
+/*   Updated: 2019/06/07 16:43:31 by rwright          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_vector.h"
+#include "ft_stdlib.h"
+#include <stddef.h>
 #include <stdlib.h>
 
-t_vector	*vector_new(int capacity)
+char	*ft_strnew(size_t size)
 {
-	t_vector *v;
+	char *str;
 
-	if ((v = malloc(sizeof(t_vector))))
-	{
-		v->size = 0;
-		v->capacity = capacity;
-		if (!(v->items = malloc(capacity * sizeof(size_t))))
-			return (NULL);
-	}
-	return (v);
+	if ((str = ft_memalloc(size + 1)))
+		return (str);
+	return (NULL);
 }

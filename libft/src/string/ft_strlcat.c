@@ -1,25 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_delete.c                                    :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rwright <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/12 14:13:27 by rwright           #+#    #+#             */
-/*   Updated: 2019/06/07 21:10:09 by rwright          ###   ########.fr       */
+/*   Created: 2019/01/14 11:18:10 by rwright           #+#    #+#             */
+/*   Updated: 2019/06/07 16:32:53 by rwright          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_vector.h"
 #include "ft_string.h"
-#include <stdlib.h>
+#include <stddef.h>
 
-void	vector_delete(t_vector *v, int index)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	ft_memmove(v->items + index,
-			v->items + index + 1,
-			(v->size - index - 1) * sizeof(size_t));
-	v->size--;
-	if (v->size <= v->capacity / 4)
-		vector_resize(v, v->capacity / 4);
+	size_t	i;
+	size_t	dst_len;
+	size_t	src_len;
+
+	dst_len = ft_strlen(dst);
+	src_len = ft_strlen(src);
+	if (dst_len >= size)
+		return (size + src_len);
+	while (*dst)
+		dst++;
+	size -= dst_len + 1;
+	i = 0;
+	while (src[i] && i < size)
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	if (i == size)
+		return (dst_len + src_len);
+	return (dst_len + i);
 }

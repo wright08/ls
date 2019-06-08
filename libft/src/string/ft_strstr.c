@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_new.c                                       :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rwright <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/12 15:53:35 by rwright           #+#    #+#             */
-/*   Updated: 2019/06/07 21:09:46 by rwright          ###   ########.fr       */
+/*   Created: 2019/01/12 21:33:51 by rwright           #+#    #+#             */
+/*   Updated: 2019/06/07 16:42:29 by rwright          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_vector.h"
-#include <stdlib.h>
-
-t_vector	*vector_new(int capacity)
+char	*ft_strstr(const char *haystack, const char *needle)
 {
-	t_vector *v;
+	int	i;
 
-	if ((v = malloc(sizeof(t_vector))))
+	if (!*needle)
+		return ((char *)haystack);
+	while (*haystack)
 	{
-		v->size = 0;
-		v->capacity = capacity;
-		if (!(v->items = malloc(capacity * sizeof(size_t))))
-			return (NULL);
+		i = 0;
+		while (needle[i] && needle[i] == haystack[i])
+			i++;
+		if (!needle[i])
+			return ((char *)haystack);
+		haystack++;
 	}
-	return (v);
+	return (0);
 }

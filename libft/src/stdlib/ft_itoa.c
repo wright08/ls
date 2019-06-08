@@ -1,28 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_new.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rwright <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/12 15:53:35 by rwright           #+#    #+#             */
-/*   Updated: 2019/06/07 21:09:46 by rwright          ###   ########.fr       */
+/*   Created: 2019/01/30 14:09:58 by rwright           #+#    #+#             */
+/*   Updated: 2019/06/07 16:11:54 by rwright          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_vector.h"
-#include <stdlib.h>
+#include "ft_string.h"
 
-t_vector	*vector_new(int capacity)
+char	*ft_itoa(int n)
 {
-	t_vector *v;
+	char	*ret;
+	long	nc;
+	int		len;
+	int		neg;
 
-	if ((v = malloc(sizeof(t_vector))))
+	len = 1;
+	nc = n;
+	if ((neg = nc < 0))
+		nc = -nc;
+	while ((n /= 10))
+		len++;
+	if ((ret = ft_strnew(len + neg)))
 	{
-		v->size = 0;
-		v->capacity = capacity;
-		if (!(v->items = malloc(capacity * sizeof(size_t))))
-			return (NULL);
+		if (neg)
+			ret[0] = '-';
+		while (len--)
+		{
+			ret[neg + len] = nc % 10 + '0';
+			nc /= 10;
+		}
 	}
-	return (v);
+	return (ret);
 }

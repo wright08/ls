@@ -1,111 +1,83 @@
-NAME = libft.a
-AR = ar
-ARFLAGS = -rcs
-CC = gcc
-CFLAGS = -Wall -Werror -Wextra
-CFLAGS += #-Ofast
-CFLAGS += #-g -fsanitize=address
-INC = -I inc
-SRC_DIR = src
-OBJ_DIR = obj
+NAME	= libft.a
+AR		= ar
+ARFLAGS	= -rcs
+CC		= gcc
+CFLAGS	= -Wall -Werror -Wextra
+CFLAGS	+= #-Ofast
+CFLAGS	+= #-g -fsanitize=address
+INC		= -I inc
+SRC_DIR	= src
+OBJ_DIR	= obj
 
-#	CTYPES
+#	CTYPE
 SRC = \
-	  ft_isalnum\
-	  ft_isalpha\
-	  ft_isascii\
-	  ft_isdigit\
-	  ft_isprint\
-	  ft_isspace\
-	  ft_toupper\
-	  ft_tolower
+	  ctype/ft_isalnum\
+	  ctype/ft_isalpha\
+	  ctype/ft_isascii\
+	  ctype/ft_isdigit\
+	  ctype/ft_isprint\
+	  ctype/ft_isspace\
+	  ctype/ft_toupper\
+	  ctype/ft_tolower
 
 #	MATH
 SRC += \
-	   ft_pow
-
-#	PRINTF
-SRC += \
-	printf/float\
-	printf/int\
-	printf/chr_str_ptr_mod\
-	printf/uint\
-	printf/utils\
-	printf/ft_printf\
-	printf/parse
+	   math/ft_pow
 
 #	STDLIB
 SRC += \
-	  ft_atoi
+	  stdlib/ft_atoi\
+	  stdlib/ft_itoa\
+	  stdlib/ft_lltoa\
+	  stdlib/ft_ulltoa_base\
+	  stdlib/ft_memalloc
 
 #	STRING
 SRC += \
-	  ft_bzero\
-	  ft_memchr\
-	  ft_memcmp\
-	  ft_memcpy\
-	  ft_memccpy\
-	  ft_memmove\
-	  ft_memset\
-	  ft_strcat\
-	  ft_strlcat\
-	  ft_strncat\
-	  ft_strchr\
-	  ft_strrchr\
-	  ft_strcmp\
-	  ft_strncmp\
-	  ft_strcpy\
-	  ft_strlcpy\
-	  ft_strncpy\
-	  ft_strdup\
-	  ft_strstr\
-	  ft_strnstr
-
-#	SHITTY PRINTF
-SRC += \
-	  ft_putchar\
-	  ft_putchar_fd\
-	  ft_putendl\
-	  ft_putendl_fd\
-	  ft_putnbr\
-	  ft_putnbr_fd\
-	  ft_putstr\
-	  ft_putstr_fd
-
-#	STRINGS/MEM
-SRC += \
-	  ft_itoa\
-	  ft_lltoa\
-	  ft_ulltoa_base\
-	  ft_memalloc\
-	  ft_memdel\
-	  ft_strclr\
-	  ft_strdel\
-	  ft_strequ\
-	  ft_striter\
-	  ft_striteri\
-	  ft_strjoin\
-	  ft_strlen\
-	  ft_strmap\
-	  ft_strmapi\
-	  ft_strnequ\
-	  ft_strnew\
-	  ft_strsplit\
-	  ft_strsub\
-	  ft_strtrim
+	  string/ft_memchr\
+	  string/ft_memcmp\
+	  string/ft_memcpy\
+	  string/ft_memccpy\
+	  string/ft_memmove\
+	  string/ft_memset\
+	  string/ft_strcat\
+	  string/ft_strlcat\
+	  string/ft_strncat\
+	  string/ft_strchr\
+	  string/ft_strrchr\
+	  string/ft_strcmp\
+	  string/ft_strncmp\
+	  string/ft_strcpy\
+	  string/ft_strlcpy\
+	  string/ft_strncpy\
+	  string/ft_strdup\
+	  string/ft_strstr\
+	  string/ft_strnstr\
+	  string/ft_strlen\
+	  string/ft_strnew\
+	  string/ft_strjoin\
+	  string/ft_strsplit\
+	  string/ft_strsub\
+	  string/ft_strtrim
 
 #	STDIO
 SRC += \
-	   get_next_line
-
-#	LIST
-SRC += \
-	  ft_lstadd\
-	  ft_lstdel\
-	  ft_lstdelone\
-	  ft_lstiter\
-	  ft_lstmap\
-	  ft_lstnew
+	  stdio/ft_putchar\
+	  stdio/ft_putchar_fd\
+	  stdio/ft_putendl\
+	  stdio/ft_putendl_fd\
+	  stdio/ft_putnbr\
+	  stdio/ft_putnbr_fd\
+	  stdio/ft_putstr\
+	  stdio/ft_putstr_fd\
+	  stdio/get_next_line\
+	  stdio/printf/float\
+	  stdio/printf/int\
+	  stdio/printf/chr_str_ptr_mod\
+	  stdio/printf/uint\
+	  stdio/printf/utils\
+	  stdio/printf/ft_printf\
+	  stdio/printf/parse
 
 #	VECTOR
 SRC += \

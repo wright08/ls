@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_add.c                                       :+:      :+:    :+:   */
+/*   ft_stdlib.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rwright <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: rwright <rwright@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/11 21:40:34 by rwright           #+#    #+#             */
-/*   Updated: 2019/06/07 21:09:46 by rwright          ###   ########.fr       */
+/*   Created: 2019/06/06 15:42:04 by rwright           #+#    #+#             */
+/*   Updated: 2019/06/07 16:44:19 by rwright          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_vector.h"
+#ifndef FT_STDLIB_H
+# define FT_STDLIB_H
 
-void	*vector_add(t_vector *v, void *item)
-{
-	if (v->capacity == v->size && !vector_resize(v, v->capacity * 2))
-		return (NULL);
-	v->items[v->size] = item;
-	v->size++;
-	return (v->items[v->size - 1]);
-}
+# include <stddef.h>
+
+int		ft_atoi(const char *str);
+char*	ft_itoa(int n);
+char*	ft_lltoa(long long n);
+char*	ft_ulltoa_base(unsigned long long n, int base);
+void*	ft_memalloc(size_t size);
+
+#endif

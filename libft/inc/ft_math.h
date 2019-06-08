@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_add.c                                       :+:      :+:    :+:   */
+/*   ft_math.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rwright <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: rwright <rwright@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/11 21:40:34 by rwright           #+#    #+#             */
-/*   Updated: 2019/06/07 21:09:46 by rwright          ###   ########.fr       */
+/*   Created: 2019/06/06 15:40:35 by rwright           #+#    #+#             */
+/*   Updated: 2019/06/06 15:40:54 by rwright          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_vector.h"
+#ifndef FT_MATH_H
+# define FT_MATH_H
 
-void	*vector_add(t_vector *v, void *item)
-{
-	if (v->capacity == v->size && !vector_resize(v, v->capacity * 2))
-		return (NULL);
-	v->items[v->size] = item;
-	v->size++;
-	return (v->items[v->size - 1]);
-}
+long	ft_pow(int base, int exponent);
+
+#endif

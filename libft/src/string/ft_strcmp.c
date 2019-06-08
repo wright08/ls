@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_new.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rwright <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/12 15:53:35 by rwright           #+#    #+#             */
-/*   Updated: 2019/06/07 21:09:46 by rwright          ###   ########.fr       */
+/*   Created: 2019/01/12 22:25:20 by rwright           #+#    #+#             */
+/*   Updated: 2019/06/07 16:41:08 by rwright          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_vector.h"
-#include <stdlib.h>
+#include <stddef.h>
+#include <stdint.h>
 
-t_vector	*vector_new(int capacity)
+int		ft_strcmp(const char *s1, const char *s2)
 {
-	t_vector *v;
+	const uint8_t	*s1u;
+	const uint8_t	*s2u;
+	size_t			i;
 
-	if ((v = malloc(sizeof(t_vector))))
+	s1u = (const uint8_t *)s1;
+	s2u = (const uint8_t *)s2;
+	i = 0;
+	while (s1u[i])
 	{
-		v->size = 0;
-		v->capacity = capacity;
-		if (!(v->items = malloc(capacity * sizeof(size_t))))
-			return (NULL);
+		if (s1u[i] != s2u[i])
+			break ;
+		i++;
 	}
-	return (v);
+	return (s1u[i] - s2u[i]);
 }

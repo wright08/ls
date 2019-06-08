@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_new.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rwright <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/12 15:53:35 by rwright           #+#    #+#             */
-/*   Updated: 2019/06/07 21:09:46 by rwright          ###   ########.fr       */
+/*   Created: 2019/01/30 15:08:52 by rwright           #+#    #+#             */
+/*   Updated: 2019/06/07 16:48:10 by rwright          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_vector.h"
-#include <stdlib.h>
+#include "ft_stdio.h"
 
-t_vector	*vector_new(int capacity)
+void	ft_putnbr_fd(int n, int fd)
 {
-	t_vector *v;
+	long overflow;
 
-	if ((v = malloc(sizeof(t_vector))))
+	if (n < 0)
 	{
-		v->size = 0;
-		v->capacity = capacity;
-		if (!(v->items = malloc(capacity * sizeof(size_t))))
-			return (NULL);
+		ft_putchar_fd('-', fd);
+		overflow = n;
+		if (n < -9)
+			ft_putnbr_fd(-overflow / 10, fd);
+		ft_putchar_fd(-overflow % 10 + '0', fd);
 	}
-	return (v);
+	else
+	{
+		if (n > 9)
+			ft_putnbr_fd(n / 10, fd);
+		ft_putchar_fd(n % 10 + '0', fd);
+	}
 }

@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_new.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rwright <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/12 15:53:35 by rwright           #+#    #+#             */
-/*   Updated: 2019/06/07 21:09:46 by rwright          ###   ########.fr       */
+/*   Created: 2019/01/18 13:10:03 by rwright           #+#    #+#             */
+/*   Updated: 2019/06/07 16:38:35 by rwright          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_vector.h"
-#include <stdlib.h>
-
-t_vector	*vector_new(int capacity)
+char	*ft_strrchr(const char *str, int c)
 {
-	t_vector *v;
+	const char *last;
 
-	if ((v = malloc(sizeof(t_vector))))
+	last = 0;
+	while (*str)
 	{
-		v->size = 0;
-		v->capacity = capacity;
-		if (!(v->items = malloc(capacity * sizeof(size_t))))
-			return (NULL);
+		if (*str == c)
+			last = str;
+		str++;
 	}
-	return (v);
+	return ((char *)(*str == c ? str : last));
 }

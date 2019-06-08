@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_new.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rwright <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/12 15:53:35 by rwright           #+#    #+#             */
-/*   Updated: 2019/06/07 21:09:46 by rwright          ###   ########.fr       */
+/*   Created: 2019/01/21 19:10:21 by rwright           #+#    #+#             */
+/*   Updated: 2019/06/07 16:39:47 by rwright          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_vector.h"
-#include <stdlib.h>
+#include <stddef.h>
+#include <stdint.h>
 
-t_vector	*vector_new(int capacity)
+void		*ft_memchr(const void *s, int c, size_t n)
 {
-	t_vector *v;
+	const uint8_t	*sp;
+	size_t			i;
 
-	if ((v = malloc(sizeof(t_vector))))
+	sp = s;
+	i = 0;
+	while (i < n)
 	{
-		v->size = 0;
-		v->capacity = capacity;
-		if (!(v->items = malloc(capacity * sizeof(size_t))))
-			return (NULL);
+		if (sp[i] == (uint8_t)c)
+			return ((void *)(sp + i));
+		i++;
 	}
-	return (v);
+	return (0);
 }
