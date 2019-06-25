@@ -31,15 +31,14 @@ void			add_flag(unsigned int *flags, int flag)
 		{'g', NO_OWNER}, {'d', NO_EXPAND_DIR}, {0, 0}};
 	int i;
 
-	i = 0;
-	while (table[i].flag)
+	i = -1;
+	while (table[++i].flag)
 	{
 		if (table[i].flag == flag)
 		{
 			*flags &= table[i].bit;
 			return ;
 		}
-		i++;
 	}
 }
 
@@ -50,9 +49,11 @@ unsigned int	parse_flags(int argc, char **argv)
 
 	i = 0;
 	while (++i < argc)
+	{
 		if (argv[i][0] == '-')
 			add_flag(&flags, argv[i][1]);
 		else
 			break ;
+	}	
 	return (flags);
 }

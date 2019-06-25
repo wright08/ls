@@ -1,8 +1,6 @@
 #ifndef LS_H
 # define LS_H
 
-# include "libft.h"
-
 // l R a r t u f g d
 # define LONG_LIST		(1U)
 # define RECURSIVE		(1U << 1)
@@ -22,7 +20,7 @@ struct s_flag_map
 };
 typedef struct s_flag_map	t_flag_map;
 
-unsigned int parse_flag(int argc, char **argv);
+unsigned int parse_flags(int argc, char **argv);
 
 
 #endif

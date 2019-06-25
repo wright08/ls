@@ -1,20 +1,21 @@
-NAME	= ls
+NAME	= lsa
 CC		= gcc
-CFLAGS	= -Wall -Werror -Wextra -Og
+CFLAGS	= -Wall -Werror -Wextra
 CFLAGS	+= -g -fsanitize=address
-INC		= -I inc -I libft/inc
+INC		= -I src -I libft/inc
 SRC_DIR	= src
 OBJ_DIR	= obj
 
 SRC = \
-	  ls
+	  parse\
+	  main
 
 OBJ = $(patsubst %, $(OBJ_DIR)/%.o, $(SRC))
 
 all: $(NAME)
 
 $(NAME): $(OBJ) libft/libft.a
-	@$(CC) $(CFLAGS) $(INC) -o $@ $< libft/libft.a
+	@$(CC) $(CFLAGS) -o $@ $^
 
 libft/libft.a:
 	@make -sC libft
