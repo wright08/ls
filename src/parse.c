@@ -36,7 +36,11 @@ void			add_flag(unsigned int *flags, int flag)
 	{
 		if (table[i].flag == flag)
 		{
-			*flags &= table[i].bit;
+			*flags |= table[i].bit;
+			if (flag == 'f')
+				*flags |= ALL;
+			else if (flag == 'g')
+				*flags |= LONG_LIST;
 			return ;
 		}
 	}

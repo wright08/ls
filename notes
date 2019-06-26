@@ -1,9 +1,8 @@
 Order of getting shit done
 
 1. get basic info seperated by newlines
-	- Argument Parser
-	- Sorting methods
-		1. Quick sort which devolves to insertion sort
+	- Argument Parser-
+	- Sorting-
 
 2. Add in fancy column support
 
